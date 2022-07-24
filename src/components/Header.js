@@ -40,7 +40,7 @@ function Header() {
             </NavItem>
             <NavItem>
               <NavLink className='nav-link' to='/phongban'>
-                <span className='fa fa-info fa-lg'></span> Phòng Ban
+                <span className='fa fa-id-card fa-lg'></span> Phòng Ban
               </NavLink>
             </NavItem>
             <NavItem>

@@ -1,8 +1,16 @@
 import React from 'react';
-import { Card, CardImg, CardTitle, CardBody, CardText } from 'reactstrap';
+import {
+  Card,
+  CardImg,
+  CardText,
+  CardBody,
+  CardTitle,
+  Breadcrumb,
+  BreadcrumbItem,
+} from 'reactstrap';
+import { Link } from 'react-router-dom';
 import dateFormat from 'dateformat';
 
-// render staff image
 function RenderImg({ staff }) {
   return (
     <div className='col-12 col-md-5 m-1'>
@@ -13,7 +21,6 @@ function RenderImg({ staff }) {
   );
 }
 
-//render staff description
 function RenderDescription({ staff }) {
   return (
     <div className='col-12 col-md-5 m-1'>
@@ -31,26 +38,29 @@ function RenderDescription({ staff }) {
   );
 }
 
-// render staff from 2 function RenderImg & RenderDetails
-const RenderStaff = props => {
-  if (props.staff) {
+function StaffDetail(props) {
+  if (props.staffId) {
     return (
-      <Card className='m-2'>
-        <button
-          type='button'
-          className='close m-2'
-          aria-label='Close'
-          onClick={() => props.handleStaffSelected(null)}
-        >
-          Đóng
-        </button>
+      <div className='container'>
         <div className='row'>
-          <RenderImg staff={props.staff} />
-          <RenderDescription staff={props.staff} />
+          <Breadcrumb>
+            <BreadcrumbItem>
+              <Link to='/nhanvien'>Nhân Viên</Link>
+            </BreadcrumbItem>
+            <BreadcrumbItem active>{props.staffId.name}</BreadcrumbItem>
+          </Breadcrumb>
+          <div className='col-12'>
+            <h3>{props.staffId.name}</h3>
+            <hr />
+          </div>
         </div>
-      </Card>
+        <div className='row'>
+          <RenderImg staff={props.staffId} />
+          <RenderDescription staff={props.staffId} />
+        </div>
+      </div>
     );
   } else return <div></div>;
-};
+}
 
-export default RenderStaff;
+export default StaffDetail;

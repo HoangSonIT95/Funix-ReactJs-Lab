@@ -3,7 +3,7 @@ import { Card, CardText, CardTitle, CardBody } from 'reactstrap';
 
 function RenderDept(props) {
   return (
-    <Card className='m-1'>
+    <Card className='mt-3 mb-3'>
       <CardTitle className='m-2'>{props.dept.name}</CardTitle>
       <CardBody>
         <CardText>Số Lượng Nhân Viên: {props.dept.numberOfStaff}</CardText>

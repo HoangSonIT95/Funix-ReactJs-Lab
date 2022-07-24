@@ -4,6 +4,7 @@ import Footer from './Footer';
 import StaffList from './StaffList';
 import StaffDetail from './StaffDetail';
 import Dept from './Dept';
+import Salary from './Salary';
 import { STAFFS, DEPARTMENTS } from '../shared/staffs';
 import { Switch, Route } from 'react-router-dom';
 
@@ -33,6 +34,10 @@ function Main() {
         />
         <Route path='/nhanvien/:IdNhanvien' component={StaffWithId} />
         <Route path='/phongban' component={() => <Dept dept={staff.dept} />} />
+        <Route
+          path='/bangluong'
+          component={() => <Salary staffs={staff.staffs} />}
+        />
       </Switch>
       <Footer />
     </div>
